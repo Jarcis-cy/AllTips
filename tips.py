@@ -94,6 +94,11 @@ def main():
                     print("*"*35)
                     print("Update_time:",i[3])
                     print("Create_time:",i[4])
+        elif args.l:
+            data = c.execute("SELECT distinct mark FROM {}".format(args.T))
+            print("Marks:")
+            for i in data:
+                print(i[0])
         else:
             print("Please input to query mark")
 
