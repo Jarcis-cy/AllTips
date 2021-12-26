@@ -80,10 +80,11 @@ def main():
     elif args.show and not (args.delete or args.create or args.change or args.add):
         if args.mark:
             data = c.execute("SELECT * FROM {} WHERE mark=='{}'".format(args.T,args.mark))
-            if len(data.fetchall()) == 0:
+            a_data = data.fetchall()
+            if len(a_data) == 0:
                 print("Not query to the data")
             else:
-                for i in data:
+                for i in a_data:
                     content = base64.decodebytes(bytes(i[2],encoding="utf-8")).decode()
                     print("-"*50)
                     print("ID:",i[0])
