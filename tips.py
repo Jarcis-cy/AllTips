@@ -79,7 +79,7 @@ def main():
 
     elif args.show and not (args.delete or args.create or args.change or args.add):
         if args.mark:
-            data = c.execute("SELECT * FROM {} WHERE mark=={}".format(args.T,args.mark))
+            data = c.execute("SELECT * FROM {} WHERE mark=='{}'".format(args.T,args.mark))
             if len(data.fetchall()) == 0:
                 print("Not query to the data")
             else:
@@ -152,4 +152,3 @@ def main():
         print("Please select a pattern")
 
 main()
-
