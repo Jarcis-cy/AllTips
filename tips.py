@@ -72,7 +72,9 @@ def main():
 
     elif args.delete and not (args.create or args.show or args.change or args.add):
         if args.id:
-            c.execute("DELETE FROM {} WHERE id={}".format(args.T,args.id))
+            c.execute("DELETE FROM {} WHERE id=={}".format(args.T,args.id))
+            conn.commit()
+            conn.close()
             print("Delete success!")
         else:
             print("Please enter the ID to delete")
